@@ -53,3 +53,25 @@ Sorted -> ['b', 'd', 'e', 'h', 'k', 'm', 'n',
 =================================================
 
 """
+#25BCSG20 ASAD AHMAD
+def letters_never_back_to_back(filename):
+    seen = set()
+    doubled = set()
+    with open(filename, "r") as f:
+        for line in f:
+            word = line.strip().upper()
+            if not word:
+                continue
+            for ch in word:
+                if ch.isalpha():
+                    seen.add(ch)
+            for i in range(len(word) - 1):
+                if word[i] == word[i + 1] and word[i].isalpha():
+                    doubled.add(word[i])
+    result = sorted(seen - doubled)
+    return result
+if __name__ == "__main__":
+    filename = "sowpods.txt"
+    ans = letters_never_back_to_back(filename)
+    print("Letters that never appear back-to-back:")
+    print(ans)

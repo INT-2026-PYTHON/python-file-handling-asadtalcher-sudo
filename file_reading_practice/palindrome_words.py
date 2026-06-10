@@ -51,3 +51,15 @@ Explanation:
 =================================================
 
 """
+#ASAD AHMAD 25BCSG20
+def is_palindrome(word):
+    return word == word[::-1]
+palindromes = []
+with open('sowpods.txt', 'r') as file:
+    for line in file:
+        word = line.strip()  
+        if word and is_palindrome(word):  
+            palindromes.append(word)
+for p in palindromes:
+    print(p)
+print(f"Total palindromes: {len(palindromes)}")
